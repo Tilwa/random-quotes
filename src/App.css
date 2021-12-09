@@ -1,18 +1,19 @@
 .App {
   text-align: center;
+  background-color: rgb(71, 66, 56);
 }
 
 #heading {
   text-align: center;
   text-transform: uppercase;
-  color: #4caf50;
+
   margin-top: 50px;
 }
 
 #quote-box {
   width: 40%;
   height: 40%;
-  background-color: rgb(153, 153, 153);
+  background-color: white;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -20,6 +21,7 @@
   right: 0;
   margin: auto;
   border-radius: 12px;
+  padding: 40px;
 }
 
 #button1 {
@@ -28,6 +30,9 @@
   bottom: 0;
   margin: 10px;
   padding: 8px;
+}
+#bg {
+  background-color: rgb(71, 66, 56);
 }
 
 #button2 {
@@ -43,11 +48,11 @@
   right: 0;
   margin: 12px;
   padding: 8px;
-  color: white;
+  color: black;
 }
 
 #text {
-  color: white;
+  color: black;
 }
 a:hover,
 a:visited,

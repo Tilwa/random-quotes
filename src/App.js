@@ -38,25 +38,27 @@ class App extends Component {
   }
 
   changeQuoteHandler = (number) => {
-    console.log("working");
     this.setState({ position: number });
   };
+
   render() {
     let number =
       this.state.quotes[Math.floor(Math.random() * this.state.quotes.length)];
 
     return (
       <div className="App">
-        <h2 id="heading">Random Quote Machine</h2>
-        <Box
-          key={this.state.quotes.id}
-          random={number}
-          change={() => this.changeQuoteHandler(number)}
-        />
+        <div id="bg">
+          <Box
+            key={this.state.quotes.id}
+            random={number}
+            change={() => this.changeQuoteHandler(number)}
+          />
+        </div>
       </div>
     );
   }
 }
+
 ////////////////////////////// App //////////////////////////////////////
 
 ////////////////////////////// Box //////////////////////////////////////
@@ -66,22 +68,45 @@ const Box = (props) => {
   let athr = twitter.author.toString();
   console.log("Quote = " + txt + " author = " + athr);
 
+  let text = props.random.text;
+
+  let colors = [
+    "#F4C2C2",
+    "#BFFF00",
+    "#AF6E4D",
+    "#FFFF99",
+    "#6D9BC3",
+    "#AD6F69",
+    "#00B7EB",
+    "#F0EAD6",
+    "#BF00FF",
+    "#C19A6B",
+    "#E5AA70",
+    "#E95C4B",
+    "#5FA777",
+    "#D473D4",
+    "#77B5FE",
+  ];
+  colors = colors[Math.floor(Math.random() * colors.length)];
+
+  const bg = {
+    backgroundColor: colors,
+  };
   return (
-    <div id="quote-box">
+    <div id="quote-box" style={bg}>
       <h1 id="text">&#8220; {props.random.text}&#8221;</h1>
       <h4 id="author">~ {props.random.author}</h4>
-      <button id="button1">
+
+      <button id="button1" style={bg}>
         <a
-          className="twitter-share-button"
-          text={txt}
-          href="https://twitter.com/intent/tweet?text=It's%20working:)"
-          data-size="large"
+          href={`http://twitter.com/intent/tweet/?text= ${text}`}
+          target="_blank"
         >
           Tweet
         </a>
       </button>
 
-      <button id="button2" onClick={props.change}>
+      <button id="button2" onClick={props.change} style={bg}>
         Next Quote
       </button>
     </div>
